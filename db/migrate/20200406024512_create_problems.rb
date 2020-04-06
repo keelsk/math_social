@@ -3,8 +3,8 @@ class CreateProblems < ActiveRecord::Migration[6.0]
     create_table :problems do |t|
       t.string :question
       t.integer :answer
-      t.datetime :started_at
       t.integer :user_id
+      t.timestamps
     end
   end
 end
