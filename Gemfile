@@ -1,7 +1,5 @@
-source "https://rubygems.org"
+source 'http://rubygems.org'
 
-# Specify your gem's dependencies in math_social.gemspec
-# gemspec
 gem 'sinatra'
 gem 'activerecord', '~> 6.0.0', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
@@ -13,5 +11,8 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem "tux"
-gem 'rack-flash3'
-gem 'sinatra-flash'
+
+group :test do
+  gem 'rack-test'
+  gem 'database_cleaner'
+end
