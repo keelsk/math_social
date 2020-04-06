@@ -4,6 +4,14 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
+    user = User.find_by(username: params[:username])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect '/problem-home'
+    else
+      flash[:message] = "Please enter a valid username and password."
+      redirect '/login'
+    end
   end
 
   get '/signup' do
@@ -12,13 +20,13 @@ class UsersController < ApplicationController
 
   post '/signup' do
     if params[:username] == "" || params[:password] == ""
+      flash[:message] = "Please enter a valid username and password."
       redirect '/signup'
-      flash[:message] = "Please enter a valid username and password"
     end
     @user = User.create(params, img_url: generate_image)
     if @user.save
       session[:user_id] = @user.id
-      redirect '/problems'
+      redirect '/problem-home'
     else
       redirect '/signup'
   end
