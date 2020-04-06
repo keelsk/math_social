@@ -9,6 +9,7 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
      "Hello, World!"
+     @problem
   end
 
   helpers do
@@ -22,9 +23,9 @@ class ApplicationController < Sinatra::Base
 
     def generate_problem
       @structure = choose_structure
-      problem_type = choose_problem_type
-
-      puts tasks[operation][problem_type].sample
+      @problem_type = choose_problem_type
+      pick_numbers
+      @problem = pick_problems
     end
 
     def choose_structure
@@ -32,7 +33,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def choose_problem_type
-      problem_type = ["join result", "join change"separate, "join start"].sample if @structure == "join"
+      problem_type = ["join result", "join change", "join start"].sample if @structure == "join"
       problem_type = ["separate result", "separate change", "separate start"].sample if @structure == "separate"
       problem_type = ["part unknown", "whole unknown"].sample if @structure == "part part whole"
       problem_type = ["difference unknown", "quantity unknown", "referent unknown"].sample if @structure == "compare"
@@ -42,8 +43,11 @@ class ApplicationController < Sinatra::Base
     end
 
     def pick_numbers
-      num1 = rand(1..999)
-      num2 = rand(1..999)
+      numbers = [[rand(2..9),rand(13..999)], [rand(10..99),rand(10..99)]].sample if @problem_type == "product unknown"
+      numbers = [rand(2..9),rand(13..999)] if @problem_type != "product unknown" && (@structure == "equal groups" || @structure == "array" || @structure == "multiplicative comparison")
+      numbers = [rand(1..999), rand(1..999)] if @structure == "join" || @structure == "separate" || @structure == "part part whole" || @structure == "compare"
+      @min = numbers.min
+      @max = numbers.max
     end
 
     def pick_problems
@@ -131,6 +135,8 @@ class ApplicationController < Sinatra::Base
           ]
         }
       }
+
+      tasks[@structure][@problem_type].sample
     end
   end
 end
