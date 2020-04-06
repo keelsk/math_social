@@ -29,5 +29,7 @@ class UsersController < ApplicationController
       redirect '/problem-home'
     else
       redirect '/signup'
+    end
   end
+
 end

@@ -1,5 +1,5 @@
-kirsten = User.create(username: "kk", password: "math", img_url:"/images/profile1")
-kelley = User.create(username: "kel", password: "money", img_url:"/images/profile2")
+kirsten = User.create(username: "kk", password: "math", img_url:"/images/robot1.png")
+kelley = User.create(username: "kel", password: "money", img_url:"/images/robot2.png")
 
 problem = "There are 5 candies. Susie ate 3. How many candies are there now?"
 answer = 5-3
