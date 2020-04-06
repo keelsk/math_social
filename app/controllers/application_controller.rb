@@ -1,3 +1,4 @@
+require 'pry'
 class ApplicationController < Sinatra::Base
 
   configure do
@@ -9,7 +10,8 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
      "Hello, World!"
-     @problem
+     @problem = pick_problem
+     erb :index
   end
 
   helpers do
@@ -25,7 +27,7 @@ class ApplicationController < Sinatra::Base
       @structure = choose_structure
       @problem_type = choose_problem_type
       pick_numbers
-      @problem = pick_problems
+      pick_problem
     end
 
     def choose_structure
@@ -40,6 +42,7 @@ class ApplicationController < Sinatra::Base
       problem_type = ["product unknown", "group size", "number of groups"].sample if @structure == "equal groups"
       problem_type = ["product unknown", "rows unknown", "columns unknown"].sample if @structure == "array"
       problem_type = ["product unknown", "multiplier unknown", "referent unknown"].sample if @structure == "multiplicative comparison"
+      problem_type
     end
 
     def pick_numbers
@@ -50,92 +53,91 @@ class ApplicationController < Sinatra::Base
       @max = numbers.max
     end
 
-    def pick_problems
+    def pick_problem
       tasks = {
         "join" => {
           "join result" => [
-            "Jill has #{num1} marbles. Her mother gives her #{num2} marbles. How many marbles does she have now?",
+            "Jill has #{@min} marbles. Her mother gives her #{@max} marbles. How many marbles does she have now?",
             "Hey"
           ],
           "join change" => [
-            "Jim has #{num1} toy cars. John gives him some more toy cars. Now Jim has #{num2} toy cars. How many toy cars did John give Jim?",
+            "Jim has #{@min} toy cars. John gives him some more toy cars. Now Jim has #{@max} toy cars. How many toy cars did John give Jim?",
             "bye"
           ],
           "join start" => [
-            ""
+            "-"
           ]
         },
 
         "separate" => {
           "separate result" => [
-            ""
+            "-"
           ],
           "separate change" => [
-            ""
+            "-"
           ],
           "separate start" => [
-            ""
+            "-"
           ]
         },
 
         "part part whole" => {
           "part unknown" => [
-            ""
+            "-"
           ],
           "whole unknown" => [
-            ""
+            "-"
           ]
         },
 
         "compare" => {
           "difference unknown" => [
-            ""
+            "-"
           ],
           "quantity unknown" => [
-            ""
+            "-"
           ],
           "referent unknown" => [
-            ""
+            "-"
           ]
         },
 
         "equal groups" => {
           "product unknown" => [
-            ""
+            "-"
           ],
           "group size" => [
-            ""
+            "-"
           ],
           "number of groups" => [
-            ""
+            "-"
           ]
         },
 
         "array" => {
           "product unknown" => [
-            ""
+            "-"
           ],
           "rows unknown" => [
-            ""
+            "-"
           ],
           "columns unknown" => [
-            ""
+            "-"
           ]
         },
 
         "multiplicative comparison" => {
           "product unknown" => [
-            ""
+            "1"
           ],
           "multiplier unknown" => [
-            ""
+            "1"
           ],
           "referent unknown" => [
-            ""
+            "1"
           ]
         }
       }
-
       tasks[@structure][@problem_type].sample
     end
   end
