@@ -9,8 +9,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-     generate_problem
-     @problem
      erb :index
   end
 
