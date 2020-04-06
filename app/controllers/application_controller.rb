@@ -12,6 +12,35 @@ class ApplicationController < Sinatra::Base
   end
 
   helpers do
+    def logged_in?
+      !!session[:user_id]
+    end
+
+    def current_user
+      @user = User.find(session[:user_id])
+    end
+
+    def generate_problem
+      @structure = choose_structure
+      problem_type = choose_problem_type
+
+      puts tasks[operation][problem_type].sample
+    end
+
+    def choose_structure
+      ["join", "separate", "part part whole", "compare", "equal groups", "array", "multiplicative comparison"].sample
+    end
+
+    def choose_problem_type
+      problem_type = ["join result", "join change"separate, "join start"].sample if @structure == "join"
+      problem_type = ["separate result", "separate change", "separate start"].sample if @structure == "separate"
+      problem_type = ["part unknown", "whole unknown"].sample if @structure == "part part whole"
+      problem_type = ["difference unknown", "quantity unknown", "referent unknown"].sample if @structure == "compare"
+      problem_type = ["product unknown", "group size", "number of groups"].sample if @structure == "equal groups"
+      problem_type = ["product unknown", "rows unknown", "columns unknown"].sample if @structure == "array"
+      problem_type = ["product unknown", "multiplier unknown", "referent unknown"].sample if @structure == "multiplicative comparison"
+    end
+
     def pick_numbers
       num1 = rand(1..999)
       num2 = rand(1..999)
@@ -82,10 +111,10 @@ class ApplicationController < Sinatra::Base
           "product unknown" => [
             ""
           ],
-          "group size" => [
+          "rows unknown" => [
             ""
           ],
-          "number of groups" => [
+          "columns unknown" => [
             ""
           ]
         },
@@ -102,23 +131,6 @@ class ApplicationController < Sinatra::Base
           ]
         }
       }
-    end
-
-    def choose_operation
-      operation = ["addition"].sample
-      puts tasks[operation][problem_type].sample
-    end
-
-    def choose_problem
-      problem_type = ["join result", "join change"].sample
-    end
-
-    def logged_in?
-      !!session[:user_id]
-    end
-
-    def current_user
-      @user = User.find(session[:user_id])
     end
   end
 end
