@@ -3,7 +3,7 @@ class CreateSolutions < ActiveRecord::Migration[6.0]
     create_table :solutions do |t|
       t.string :explanation
       t.integer :student_answer
-      t.integer :problem_id
+      # t.integer :problem_id
       t.timestamps
     end
   end
