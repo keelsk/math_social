@@ -1,3 +1,4 @@
+require 'pry'
 class UsersController < ApplicationController
   get '/login' do
     erb :'users/login'
@@ -24,9 +25,9 @@ class UsersController < ApplicationController
       redirect '/signup'
     end
     params[:img_url] = generate_image
-    @user = User.create(params)
-    if @user.save
-      session[:user_id] = @user.id
+    user = User.create(params)
+    if user.save
+      session[:user_id] = user.id
       redirect '/problem-home'
     else
       redirect '/signup'
