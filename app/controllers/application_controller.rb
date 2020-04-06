@@ -9,8 +9,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-     "Hello, World!"
-     @problem = pick_problem
+     generate_problem
+     @problem
      erb :index
   end
 
@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
       @structure = choose_structure
       @problem_type = choose_problem_type
       pick_numbers
-      pick_problem
+      @problem = pick_problem
     end
 
     def choose_structure
