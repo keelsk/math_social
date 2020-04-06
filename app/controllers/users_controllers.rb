@@ -23,7 +23,8 @@ class UsersController < ApplicationController
       flash[:message] = "Please enter a valid username and password."
       redirect '/signup'
     end
-    @user = User.create(params, img_url: generate_image)
+    params[:img_url] = generate_image
+    @user = User.create(params)
     if @user.save
       session[:user_id] = @user.id
       redirect '/problem-home'

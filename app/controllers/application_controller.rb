@@ -1,4 +1,5 @@
 require 'pry'
+require 'rack-flash'
 class ApplicationController < Sinatra::Base
 
   configure do
@@ -6,6 +7,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "password_security"
+    use Rack::Flash
   end
 
   get '/' do
@@ -19,6 +21,10 @@ class ApplicationController < Sinatra::Base
 
     def current_user
       @user = User.find(session[:user_id])
+    end
+
+    def generate_image
+      ["/images/robot1.png", "/images/robot2.png", "/images/robot3.png", "/images/robot4.png", "/images/robot5.png", "/images/robot6.png", "/images/robot7.png"].sample
     end
 
     def generate_problem
