@@ -23,4 +23,23 @@ class SolutionsController < ApplicationController
     erb :'solutions/show'
     # id refers to solution id
   end
+
+  get "/solutions/:id/edit" do
+    @solution = Solution.find_by_id(params[:id])
+    @problem = @solution.problem
+    erb :'solutions/edit'
+  end
+
+  patch "/solutions/:id" do
+    solution = Solution.find_by_id(params[:id])
+    solution.update(explanation: params[:explanation], student_answer: params[:student_answer])
+    redirect "/solutions/#{solution.id}"
+  end
+
+  delete "/solutions/:id" do
+    solution = Solution.find_by_id(params[:id])
+    solution.problem.destroy
+    solution.destroy
+    redirect '/problems/:username'
+  end
 end

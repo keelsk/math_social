@@ -3,6 +3,14 @@
 <h2>My Solution: </h2>
 <%= @solution.explanation%><br>
 My final answer is: <%= @solution.student_answer%><br><br>
+
+<a href ="/solutions/<%=@solution.id%>/edit">Edit</a>
+
+<form action= "/solutions/<%=@solution.id%>" method ="post">
+  <input type = "hidden" id ="hidden" name ="_method" value = "delete">
+  <input type = "submit" value= "Delete Solution">
+</form>
+
 <h2>Comments: </h2>
 <% @solution.comments.each do |comment|%>
 <%= comment.user.username%>:  <%= comment.content%><br>

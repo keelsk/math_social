@@ -1,0 +1,10 @@
+<h1>Problem:</h1>
+<%=@problem.question%>
+
+<h1>Solution:</h1>
+<form action ="/solutions/<%=@solution.id%>" method ="post">
+  <input type ="hidden" id ="hidden" name ="_method" value = "patch">
+  Explanation: <textarea name ="explanation" value ="<%=@solution.explanation%>" required></textarea><br>
+  Numerical Answer: <input type ="text" name ="student_answer" value ="<%=@solution.student_answer%>" required><br>
+  <input type ="submit" name ="Submit Answer">
+</form>
