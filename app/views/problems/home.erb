@@ -1,0 +1,12 @@
+<h1><%=@user.username %>'s Portfolio:</h1>
+<a href ="/problems/<%=@user.username%>"><img src ="<%=@user.img_url%>" width =100></a>
+Review the problems you solved, but don't stop there! Make sure you solve more problems to add to your portfolio!
+
+<a href ="/problems/<%=@user.username%>">View my Portfolio</a>
+
+<h1>Investigate with Friends:</h1>
+Check out your friends portfolios and give helpful hints about their math solutions!
+
+<%@users.each do |user|%>
+<a href ="/problems/<%=user.username%>"><img src ="<%=user.img_url%>" width =100></a>
+<%end%>

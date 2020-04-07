@@ -1,7 +1,9 @@
+<h1>Problem:</h1>
 <%=@problem.question%>
 
-<form action ="/problems" method ="post">
-  <input type ="text" name ="explanation">
-  <input type ="text" name ="student_answer">
+<h1>Solution:</h1>
+<form action ="/problems/<%=@problem.id%>" method ="post">
+  Explanation: <textarea name ="explanation" required></textarea><br>
+  Numerical Answer: <input type ="text" name ="student_answer" required><br>
   <input type ="submit" name ="Submit Answer">
 </form>

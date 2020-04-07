@@ -4,7 +4,7 @@ class ProblemsController < ApplicationController
     @problems = Problem.all
     @user = current_user
     @users = User.all
-    erb :'problems/index'
+    erb :'problems/home'
   end
 
   get "/problems/:username" do
@@ -14,16 +14,24 @@ class ProblemsController < ApplicationController
       redirect "/problem-home"
     else
       @problems = @user.problems
-      erb :'problems/show'
+      erb :'problems/index'
     end
   end
 
   get "/problems" do
     question = generate_problem
     @user = current_user
-    @user.problem.create(question: question, answer: @answer)
+    @problem = @user.problems.create(question: question, answer: @answer)
     @user.save
     erb :'problems/new'
+  end
+
+  post "/problems/:id" do
+    problem = Problem.find_by_id(params[:id])
+    solution = Solution.create(explanation: params[:explanation], student_answer: params[:student_answer])
+    problem.solution = solution
+    problem.save
+    redirect "solutions/#{solution.id}"
   end
 
 end
