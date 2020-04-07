@@ -18,20 +18,4 @@ class ProblemsController < ApplicationController
     end
   end
 
-  get "/problems" do
-    question = generate_problem
-    @user = current_user
-    @problem = @user.problems.create(question: question, answer: @answer)
-    @user.save
-    erb :'problems/new'
-  end
-
-  post "/problems/:id" do
-    problem = Problem.find_by_id(params[:id])
-    solution = Solution.create(explanation: params[:explanation], student_answer: params[:student_answer])
-    problem.solution = solution
-    problem.save
-    redirect "solutions/#{solution.id}"
-  end
-
 end

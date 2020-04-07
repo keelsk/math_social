@@ -8,4 +8,6 @@ My final answer is: <%= @solution.student_answer%><br><br>
 <%= comment.user.username%>:  <%= comment.content%><br>
 <% end%>
 
-<a href ="/comments/<%=@solution.id%>"
+<a href ="/comments/<%=@solution.id%>">Comment</a>
+
+<a href ="/problems/<%=current_user.username%>">View My Portfolio</a>

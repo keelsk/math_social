@@ -1,8 +1,8 @@
 <h1>My Portfolio: </h1>
 
-<a href ="/problems">Solve a Task!</a><br>
+<a href ="/solutions">Solve a Task!</a><br>
 
 <%@problems.each do |problem|%>
 <%=problem.question%><br>
-<a href ="/solutions/<%=problem.solution.id%>">View</a>
+<a href ="/solutions/<%=problem.solution.id%>">View</a><br><br>
 <%end%>
