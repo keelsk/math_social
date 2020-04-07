@@ -7,7 +7,7 @@ class ProblemsController < ApplicationController
     erb :'problems/index'
   end
 
-  get "/:username/problems" do
+  get "/problems/:username" do
     @user = User.find_by(username: params[:username])
     if current_user != @user
       flash[:message] = "You do not have permission to access this page."
@@ -16,6 +16,14 @@ class ProblemsController < ApplicationController
       @problems = @user.problems
       erb :'problems/show'
     end
+  end
+
+  get "/problems" do
+    question = generate_problem
+    @user = current_user
+    @user.problem.create(question: question, answer: @answer)
+    @user.save
+    erb :'problems/new'
   end
 
 end

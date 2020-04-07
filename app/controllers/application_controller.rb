@@ -31,7 +31,8 @@ class ApplicationController < Sinatra::Base
       @structure = choose_structure
       @problem_type = choose_problem_type
       pick_numbers
-      @problem = pick_problem
+      generate_answer
+      pick_problem
     end
 
     def choose_structure
@@ -42,7 +43,7 @@ class ApplicationController < Sinatra::Base
       problem_type = ["join result", "join change", "join start"].sample if @structure == "join"
       problem_type = ["separate result", "separate change", "separate start"].sample if @structure == "separate"
       problem_type = ["part unknown", "whole unknown"].sample if @structure == "part part whole"
-      problem_type = ["difference unknown", "quantity unknown", "referent unknown"].sample if @structure == "compare"
+      problem_type = ["difference unknown", "quantity more", "quantity less", "referent more", "referent less"].sample if @structure == "compare"
       problem_type = ["product unknown", "group size", "number of groups"].sample if @structure == "equal groups"
       problem_type = ["product unknown", "rows unknown", "columns unknown"].sample if @structure == "array"
       problem_type = ["product unknown", "multiplier unknown", "referent unknown"].sample if @structure == "multiplicative comparison"
@@ -55,6 +56,22 @@ class ApplicationController < Sinatra::Base
       numbers = [rand(1..999), rand(1..999)] if @structure == "join" || @structure == "separate" || @structure == "part part whole" || @structure == "compare"
       @min = numbers.min
       @max = numbers.max
+    end
+
+    def generate_answer
+      @answer = @min * @max if @problem_type == "product unknown"
+      if @problem_type != "product unknown" && (@structure == "equal groups" || @structure == "array" || @structure == "multiplicative comparison")
+        quotient = @max / @min
+        remainder = @max % @min
+        @answer = quotient if remainder == 0
+        @answer = "#{quotient} r #{remainder}"
+      end
+      if ["join change", "join start", "separate result", "separate change", "part unknown", "difference unknown", "quantity less", "referent more"].any? {|option| option == @problem_type}
+        @answer = @max - @min
+      end
+      if ["join result", "separate start", "whole unknown", "quantity more", "referent less"].any? {|option| option == @problem_type}
+        @answer = @max + @min
+      end
     end
 
     def pick_problem
@@ -98,10 +115,16 @@ class ApplicationController < Sinatra::Base
           "difference unknown" => [
             "-"
           ],
-          "quantity unknown" => [
+          "quantity more" => [
             "-"
           ],
-          "referent unknown" => [
+          "quantity less" => [
+            "-"
+          ],
+          "referent more" => [
+            "-"
+          ],
+          "referent less" => [
             "-"
           ]
         },
