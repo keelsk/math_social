@@ -1,0 +1,5 @@
+<%= @solution.explanation%><br>
+<%= @problem.question%><br>
+<% @solution.comments.each do |comment|%>
+<%= comment.content%>
+<% end%>
