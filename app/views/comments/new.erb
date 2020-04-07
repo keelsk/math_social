@@ -1,0 +1,19 @@
+<h1>Problem:</h1>
+<%=@problem.question%>
+
+<<h2>Current Solution: </h2>
+<%= @solution.explanation%><br>
+Current numerical answer is: <%= @solution.student_answer%><br><br>
+
+
+<form action ="/comments/<%=@solution.id%>" method ="post">
+  My Comment: <textarea name ="content" required></textarea><br>
+  <input type ="submit" name ="Submit">
+</form>
+
+<br>
+
+<h2>Previous Comments: </h2>
+<% @solution.comments.each do |comment|%>
+<%= comment.user.username%>:  <%= comment.content%><br>
+<% end%>
