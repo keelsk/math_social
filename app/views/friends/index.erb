@@ -1,0 +1,9 @@
+<h1>My Math Buddies</h1>
+<%@friends.each do |friend|%>
+    <em><%=friend.username%></em><br>
+    <a href="/problems/:username"<img src ="<%=friend.img_url%>" width ="100"><br>
+    <form action ="/friends/<%=friend.username%>" method = "post">
+      <input type ="hidden" id ="hidden" name ="_method" value ="delete">
+      <input type ="submit" value ="Remove Friend">
+    </form><br>
+<% end %>
