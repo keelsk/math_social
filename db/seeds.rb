@@ -23,8 +23,9 @@ student_solution.comments << second_comment
 student_solution.save
 # first_comment = Comment.create(content: "I agree with you!")
 
-# kelley.comments << first_comment
-# kelley.save
+kelley.comments << first_comment
+kelley.comments << second_comment
+kelley.save
 
 # student_solution.comments << first_comment
 # student_solution.save

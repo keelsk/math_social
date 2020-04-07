@@ -1,5 +1,9 @@
-<%= @solution.explanation%><br>
+<h2>Problem: </h2>
 <%= @problem.question%><br>
+<h2>My Solution: </h2>
+<%= @solution.explanation%><br>
+My final answer is: <%= @solution.student_answer%><br><br>
+<h2>Comments: </h2>
 <% @solution.comments.each do |comment|%>
-<%= comment.content%>
+<%= comment.user.username%>:  <%= comment.content%><br>
 <% end%>
