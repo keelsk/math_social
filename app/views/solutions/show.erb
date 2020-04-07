@@ -7,3 +7,5 @@ My final answer is: <%= @solution.student_answer%><br><br>
 <% @solution.comments.each do |comment|%>
 <%= comment.user.username%>:  <%= comment.content%><br>
 <% end%>
+
+<a href ="/comments/<%=@solution.id%>"
