@@ -1,6 +1,6 @@
 class FriendsController < ApplicationController
-  get "/friends/:username" do
-    @user = User.find_by(username: params[:username])
+  get "/friends/:id" do
+    @user = User.find_by(params[:id])
     @friends = @user.get_friends
     erb :"friends/index"
   end
