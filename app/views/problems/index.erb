@@ -1,18 +1,18 @@
 <% if current_user.id == @user.id %>
     <h1>My Portfolio: </h1>
-    <img src="<%=@user.img_url%>" width =100>
+    <img src="<%=@user.img_url%>" width =100><br>
 
     <a href ="/solutions">Solve a Task!</a><br>
 
 <% else %>
     <h1><%=@user.username%>'s Portfolio: </h1>
-    <img src="<%=@user.img_url%>" width =100>
+    <img src="<%=@user.img_url%>" width =100><br>
     <% if current_user.friends.any? {|friend| friend.username == @user.username} %>
         You and <%= @user.username %> are Math Buddies!
     <% else %>
         <a href ="/friends/<%=@user.username%>/add">Add Math Buddy</a><br>
     <% end %>
-<%end%>
+<%end%><br><br>
 
 <%@problems.each do |problem|%>
     <%=problem.question%><br>
