@@ -11,6 +11,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
+    @session = session
      erb :index
   end
 
@@ -20,7 +21,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      @user = User.find(session[:user_id])
+      user = User.find(session[:user_id])
     end
 
     def generate_image

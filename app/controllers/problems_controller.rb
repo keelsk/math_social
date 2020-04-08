@@ -8,13 +8,13 @@ class ProblemsController < ApplicationController
 
   get "/problems/:username" do
     @user = User.find_by(username: params[:username])
-    if current_user != @user
-      flash[:message] = "You do not have permission to access this page."
-      redirect "/problem-home"
-    else
+    # if current_user.id != @user.id
+    #   flash[:message] = "You do not have permission to access this page."
+    #   redirect "/problem-home"
+    # else
       @problems = @user.problems
       erb :'problems/index'
-    end
+    # end
   end
 
 end

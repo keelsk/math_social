@@ -1,17 +1,20 @@
-<% if current_user.username == @problems.first.user.username %>
-<h1>My Portfolio: </h1>
-<img src="<%=@problems.first.user.img_url%>" width =100>
+<% if current_user.id == @user.id %>
+    <h1>My Portfolio: </h1>
+    <img src="<%=@user.img_url%>" width =100>
 
-<a href ="/solutions">Solve a Task!</a><br>
+    <a href ="/solutions">Solve a Task!</a><br>
 
 <% else %>
-<h1><%=@problems.user%>'s Portfolio: </h1>
-<img src="<%=@problems.first.user.img_url%>" width =100>
-
-<a href ="/friends/<%=@problems.first.user.username%>/add">Add Math Buddy</a><br>
+    <h1><%=@user.username%>'s Portfolio: </h1>
+    <img src="<%=@user.img_url%>" width =100>
+    <% if current_user.friends.any? {|friend| friend.username == @user.username} %>
+        You and <%= @user.username %> are Math Buddies!
+    <% else %>
+        <a href ="/friends/<%=@user.username%>/add">Add Math Buddy</a><br>
+    <% end %>
 <%end%>
 
 <%@problems.each do |problem|%>
-<%=problem.question%><br>
-<a href ="/solutions/<%=problem.solution.id%>">View</a><br><br>
+    <%=problem.question%><br>
+    <a href ="/solutions/<%=problem.solution.id%>">View</a><br><br>
 <%end%>
