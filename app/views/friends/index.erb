@@ -1,4 +1,5 @@
 <h1>My Math Buddies</h1>
+You have <%=friends.size%> Math Buddies! <br>
 <%@friends.each do |friend|%>
     <em><%=friend.username%></em><br>
     <a href="/problems/:username"<img src ="<%=friend.img_url%>" width ="100"><br>
@@ -7,4 +8,3 @@
       <input type ="submit" value ="Remove Friend">
     </form><br>
 <% end %>
- 
