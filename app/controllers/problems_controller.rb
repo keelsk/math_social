@@ -1,9 +1,8 @@
 class ProblemsController < ApplicationController
   get "/problem-home" do
     redirect "/" if !logged_in?
-    @problems = Problem.all
     @user = current_user
-    @users = User.all
+    @friends = @user.get_friends
     erb :'problems/home'
   end
 
@@ -19,4 +18,3 @@ class ProblemsController < ApplicationController
   end
 
 end
- 
