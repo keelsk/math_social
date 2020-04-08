@@ -12,7 +12,7 @@ class ProblemsController < ApplicationController
     #   flash[:message] = "You do not have permission to access this page."
     #   redirect "/problem-home"
     # else
-      @problems = @user.problems
+      # @problems = @user.problems || ""
       erb :'problems/index'
     # end
   end

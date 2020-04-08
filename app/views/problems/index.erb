@@ -14,7 +14,14 @@
     <% end %>
 <%end%><br><br>
 
-<%@problems.each do |problem|%>
+<h1>Problems: </h1>
+
+<% if @user.problems.empty? %>
+You haven't solved any problems, yet! Let's investigate.
+
+<% else %>
+<%@user.problems.each do |problem|%>
     <%=problem.question%><br>
     <a href ="/solutions/<%=problem.solution.id%>">View</a><br><br>
 <%end%>
+<% end %>
