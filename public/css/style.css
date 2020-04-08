@@ -1,35 +1,90 @@
 body {
+  padding: 0;
+  margin: 0;
   font-family: 'Open Sans', sans-serif;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #533A71;
-  position: fixed;
-  top: 0;
+/*--- navigation bar ---*/
+
+.navbar {
+  background:#533A71;
+}
+
+.nav-link,
+.navbar-brand {
+  color: #fff;
+  cursor: pointer;
+}
+
+.nav-link {
+  margin-right: 1em !important;
+}
+
+.nav-link:hover {
+  color: #FF5959;
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+}
+/*---------------recent nav bar ------------------*/
+/*.navbar {
   width: 100%;
+  background-color: #533A71;
+  color: #fff
+  /*float: right;*/
 }
 
-li {
-  float: right;
-}
-
-li a {
+/*.navbar li a {
   display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-}
+  float: right;
+}*/
 
-li:last-child {
-  float: left;
+/*.navbar li a:hover {
+  text-decoration: none;
+  color: #FF5959;
+}*/*/
+/*-----------Old Code ----------------*/
+/*nav-link li a:hover {
+  background-color: #FF5959;
+  text-decoration: none;
+  color: #fff;
+}*/
+
+/*.navbar-brand {
+  float: right;
   padding: 0;
   margin: 0;
-}
+}*/
+
+/*li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}*/
+
+/*ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #533A71;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}*/
+
+/*nav img {
+  padding: 0;
+  margin: 0;
+  float: left;
+}*/
 
 /*li:last-child {
   float: left;
@@ -38,11 +93,6 @@ li:last-child {
 }*/
 
 /* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #FF5959;
-  text-decoration: none;
-  color: #fff;
-}
 
 /*----------- Forms Format ---------------------*/
 form {

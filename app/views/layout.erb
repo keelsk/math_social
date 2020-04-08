@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div id ="nav">
+  <!-- <div id ="nav">
     <ul>
       <% if logged_in? %>
       <li><a href="/logout">Logout</a></li>
@@ -20,8 +20,41 @@
       <%end %>
       <li><a href="/problem-home"><img src ="/images/logo.png" height =26></a></li>
     </ul>
+  </div> -->
+
+  <nav class="navbar navbar-expand-md">
+  <a class="navbar-brand" href="/"><img src ="/images/logo.png" height =42></a>
+  <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="main-navigation">
+    <ul class="navbar-nav">
+      <% if logged_in? %>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/friends/<%=current_user.id%>">Math Buddies</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/problems/<%=current_user.username%>">Portfolio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/problems/new">Investigate</a>
+      </li>
+      <%else %>
+      <li class="nav-item">
+        <a class="nav-link" href="/signup">Join</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Log in</a>
+      </li>
+      <%end %>
+    </ul>
   </div>
 
-  <%= yield %>
+  <div>
+    <!-- <%= yield %> -->
+  </div>
 </body>
 </html>
