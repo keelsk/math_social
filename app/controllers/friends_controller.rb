@@ -5,6 +5,12 @@ class FriendsController < ApplicationController
     erb :"friends/index"
   end
 
+  get "/friends/:username/add" do
+    friend = Friend.find_or_create_by(username: params[:username])
+    current_user.friends << friend
+    redirect "/friends/#{current_user.username}"
+  end
+
   delete "/friends/:friend_username" do
     friend = Friend.find_by(username: params[:friend_username])
     friend.destroy
@@ -12,4 +18,3 @@ class FriendsController < ApplicationController
     redirect "/friends/#{username}"
   end
 end
- 
