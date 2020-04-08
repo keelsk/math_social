@@ -13,7 +13,7 @@ class SolutionsController < ApplicationController
     solution = Solution.create(explanation: params[:explanation], student_answer: params[:student_answer])
     problem.solution = solution
     problem.save
-    redirect "solutions/#{solution.id}"
+    redirect "/problems/#{problem.user.username}"
   end
 
   get "/solutions/:id" do
@@ -38,8 +38,10 @@ class SolutionsController < ApplicationController
 
   delete "/solutions/:id" do
     solution = Solution.find_by_id(params[:id])
-    solution.problem.destroy
+    problem = solution.problem
+    user = problem.user
+    problem.destroy
     solution.destroy
-    redirect '/problems/:username'
+    redirect "/problems/#{user.username}"
   end
 end

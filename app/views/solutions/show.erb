@@ -1,17 +1,46 @@
-<h2>Problem: </h2>
+<div class ="form-group row">
+  <label for="problem" class="col-sm-2 col-form-label"><%=@problem.user.username.capitalize%>'s Problem</label>
+    <div class="col-sm-10">
+      <textarea name ="problem" class ="form-control" placeholder ="Problem:
+        <%=@problem.question%>
+
+        Solution:
+        <%= @solution.explanation%>
+
+        My final answer is <%= @solution.student_answer%>." readonly></textarea>
+    </div>
+</div>
+
+<!-- Delete Button -->
+
+<%if @problem.user.id == current_user.id%>
+<form action= "/solutions/<%=@solution.id%>" method ="post">
+  <div class="form-group row">
+    <input type = "hidden" id ="hidden" name ="_method" value = "delete">
+      <div class="col-sm-10 offset-sm-2">
+          <button type="submit" class="btn btn-primary">Delete Solution</button>
+      </div>
+  </div>
+  <!-- <input type = "submit" value= "Delete Solution"> -->
+</form>
+<%end%>
+
+
+<!-- <h2>Problem: </h2>
 <%= @problem.question%><br>
 <h2>My Solution: </h2>
 <%= @solution.explanation%><br>
-My final answer is: <%= @solution.student_answer%><br><br>
+My final answer is: <%= @solution.student_answer%><br><br> -->
 
 <a href ="/solutions/<%=@solution.id%>/edit">Edit</a>
 
-<form action= "/solutions/<%=@solution.id%>" method ="post">
-  <input type = "hidden" id ="hidden" name ="_method" value = "delete">
-  <input type = "submit" value= "Delete Solution">
-</form>
+
+<!-- Delete Button -->
+
+<!-- Comments Begin -->
 
 <h2>Comments: </h2>
+<a href ="/comments/<%=@solution.id%>">Comment</a>
 <% @solution.comments.each do |comment|%>
 <%= comment.user.username%>:  <%= comment.content%> <a href ="/comments/<%=comment.id%>/edit">Edit</a>
 <form action ="/comments/<%=comment.id%>" method = "post">
@@ -20,6 +49,5 @@ My final answer is: <%= @solution.student_answer%><br><br>
 <br>
 <% end%>
 
-<a href ="/comments/<%=@solution.id%>">Comment</a>
 
-<a href ="/problems/<%=current_user.username%>">View My Portfolio</a>
+<!-- <a href ="/problems/<%=current_user.username%>">View My Portfolio</a> -->
