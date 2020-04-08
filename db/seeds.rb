@@ -1,8 +1,8 @@
 kirsten = User.create(username: "summerkaye86", password: "math", img_url:"/images/robot1.png")
 kelley = User.create(username: "kelleywithlove", password: "money", img_url:"/images/robot2.png")
 kyreese = User.create(username: "kyreese", password: "1010", img_url:"/images/robot3.png")
-micca = User.create(username: "msmcc14", password: "1010", img_url:"/images/robot3.png")
-britt = User.create(username: "adornedbybritt", password: "brady", img_url:"/images/robot3.png")
+micca = User.create(username: "msmcc14", password: "1010", img_url:"/images/robot4.png")
+britt = User.create(username: "adornedbybritt", password: "brady", img_url:"/images/robot5.png")
 
 problem = "There are 5 candies. Susie ate 3. How many candies are there now?"
 answer = 5-3
@@ -43,4 +43,3 @@ kirsten.friends << d
 
 # student_solution.comments << first_comment
 # student_solution.save
- 
