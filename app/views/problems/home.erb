@@ -1,4 +1,40 @@
-<h1><%=current_user.username %>'s Portfolio:</h1>
+<div class ="profile">
+<div class="row">
+  <div class="col-md-3">
+    <div class="card profile-info" style="max-width: 18rem;">
+      <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+      </ul>
+      <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="card">
+      <h5 class="card-header">Featured</h5>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a style ="float: right;" href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<!-- <h1><%=current_user.username %>'s Portfolio:</h1>
 <a href ="/problems/<%=current_user.username%>"><img src ="<%=current_user.img_url%>" width =100></a>
 Review the problems you solved, but don't stop there! Make sure you solve more problems to add to your portfolio!
 
@@ -9,4 +45,4 @@ Check out your <a href ="/friends/<%=current_user.id%>">friends' portfolios</a> 
 
 <%@friends.each do |friend|%>
 <a href ="/problems/<%=friend.username%>"><img src ="<%=friend.img_url%>" width =100></a>
-<%end%>
+<%end%> -->
