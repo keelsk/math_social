@@ -5,9 +5,8 @@ Review the problems you solved, but don't stop there! Make sure you solve more p
 <a href ="/problems/<%=@user.username%>">View my Portfolio</a>
 
 <h1>Investigate with Friends:</h1>
-Check out your friends portfolios and give helpful hints about their math solutions!
+Check out your <a href ="/friends/<%=current_user.username%>">friends' portfolios</a> and give helpful hints about their math solutions!
 
-<%@users.each do |user|%>
-<a href ="/problems/<%=user.username%>"><img src ="<%=user.img_url%>" width =100></a>
+<%@friends.each do |friend|%>
+<a href ="/problems/<%=friend.username%>"><img src ="<%=user.img_url%>" width =100></a>
 <%end%>
- 
