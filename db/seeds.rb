@@ -36,10 +36,11 @@ c = Friend.create(username: micca.username)
 d = Friend.create(username: britt.username)
 
 kirsten.friends << a
-kirsten.friends << b 
+kirsten.friends << b
 kirsten.friends << c
 kirsten.friends << d
 
 
 # student_solution.comments << first_comment
 # student_solution.save
+ 

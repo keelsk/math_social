@@ -12,3 +12,4 @@ class FriendsController < ApplicationController
     redirect "/friends/#{username}"
   end
 end
+ 
