@@ -1,24 +1,101 @@
+<!-- # <% if current_user.id == @user.id %>
+#     <h1>My Portfolio: </h1>
+#     <img src="<%=@user.img_url%>" width =100><br>
+#
+#     <a href ="/solutions">Solve a Task!</a><br>
+#
+# <% else %>
+#     <h1><%=@user.username%>'s Portfolio: </h1>
+#     <img src="<%=@user.img_url%>" width =100><br>
+#     <% if current_user.friends.any? {|friend| friend.username == @user.username} %>
+#         You and <%= @user.username %> are Math Buddies!
+#     <% else %>
+#         <a href ="/friends/<%=@user.username%>/add" class = "btn-sm btn-success">Add Math Buddy</a><br>
+#     <% end %>
+# <%end%><br><br> -->
 <% if current_user.id == @user.id %>
-    <h1>My Portfolio: </h1>
-    <img src="<%=@user.img_url%>" width =100><br>
-
-    <a href ="/solutions">Solve a Task!</a><br>
-
+  <h2 class ="text-success">My Portfolio</h2>
 <% else %>
-    <h1><%=@user.username%>'s Portfolio: </h1>
-    <img src="<%=@user.img_url%>" width =100><br>
-    <% if current_user.friends.any? {|friend| friend.username == @user.username} %>
-        You and <%= @user.username %> are Math Buddies!
+  <h2 class ="text-success"><%=@user.username.capitalize%>'s Portfolio</h2>
+<% end %>
+<!-- sidebar -->
+<div>
+<div class="row">
+  <div class="col-md-3 profile-column">
+    <div class="card profile-info border-primary text-center" style="max-width: 100%;">
+        <% if current_user.id == @user.id%>
+          <img src ="<%=current_user.img_url%>" width =100>
+        <% else%>
+          <img src ="<%=@user.img_url%>" width =100>
+        <% end%>
+      <div class="card-body">
+          <h5 class="card-title text-success"><%=@user.username.capitalize%></h5>
+          <p class="card-text text-left">This is your robot. The more problems you solve the more things your robot will be able to do! Make sure you help your friends and solve as many problems as possible!</p>
+      </div>
+      <ul class="list-group list-group-flush text-left">
+        <li class="list-group-item"> </li>
+        <% if current_user.id != @user.id %>
+          <% if current_user.friends.any? {|friend| friend.username == @user.username} %>
+                <li class="list-group-item">You and <%= @user.username %> are Math Buddies!</li>
+          <% else %>
+                <a href ="/friends/<%=@user.username%>/add" class = "btn-sm btn-success">Add Math Buddy</a><br>
+          <% end %>
+        <% end %>
+        <li class="list-group-item"><%=@user.problems.size%> problems solved</li>
+          <li class="list-group-item">Math Buddies</li>
+      </ul>
+      <div class="text-left">
+        <%@user.get_friends.each do |friend|%>
+          <a href ="/problems/<%=friend.username%>"><img src ="<%=friend.img_url%>" width =50></a>
+        <%end%>
+      </div>
+      <!-- <div class="card-body text-left">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+      </div> -->
+    </div>
+  </div>
+
+  <% if !@user.problems.nil? %>
+    <%@user.problems.each do |problem|%>
+    <% if !problem.solution.nil? %>
+      <div class="col-md-8">
+        <div class="card border-primary">
+          <h5 class="card-header bg-primary text-warning">Solution</h5>
+          <div class="card-body">
+            <h5 class="card-title">Solved Task:</h5>
+            <p class="card-text"><%=problem.question%></p>
+            <a href="/solutions/<%=problem.solution.id%>" class="btn btn-success text-right">View</a>
+          </div>
+        </div>
+      </div>
+    <%end%>
+    <%end%>
     <% else %>
-        <a href ="/friends/<%=@user.username%>/add">Add Math Buddy</a><br>
-    <% end %>
-<%end%><br><br>
+      <div class="col-md-8">
+        <h2 class = "text-success">You have not solved any problems, yet. Let's investigate!</h2>
+      <div class="col-md-8">
+  <%end%>
+
+</div>
+</div>
+
+
+
+
+
+
 
 <h1>Problems: </h1>
 
 
-
-<%@user.problems.each do |problem|%>
+<% if !@user.problems.nil? %>
+  <%@user.problems.each do |problem|%>
+  <% if !problem.solution.nil? %>
     <%=problem.question%><br>
     <a href ="/solutions/<%=problem.solution.id%>">View</a><br><br>
+    <% end %>
+  <% end %>
+<% else %>
+  You have not solved any problems, yet. Let's investigate!
 <% end %>
