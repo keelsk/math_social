@@ -31,10 +31,9 @@
   <% if !problem.solution.nil? %>
   <!-- <div class="col-md-8"> -->
     <div class="card border-primary">
-      <h5 class="card-header bg-primary text-warning">Solution</h5>
+      <h5 class="card-header bg-primary text-warning"><%=problem.user.username.capitalize%>'s Solution</h5>
         <div class="card-body">
-          <h5 class="card-title"><%=problem.user.username.capitalize%> solved this task:</h5>
-          <p class="card-text"><%=problem.question%></p>
+          <h5 class="card-title"><%=problem.question%></h5>
           <a href="/solutions/<%=problem.solution.id%>" class="btn btn-success text-right">View</a>
       </div>
     </div>
