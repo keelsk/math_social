@@ -1,3 +1,4 @@
+<!-- Display problem and solution -->
 <div class ="row features justify-content-center">
   <div class="col-md-8">
     <div class="card border-primary">
@@ -7,6 +8,8 @@
           <p class="card-text">Solution: </p>
           <p><%= @solution.explanation%></p>
           <p>My final answer is <%= @solution.student_answer%>.</p>
+
+          <!-- Delete and Edit Buttons -->
 
           <%if @problem.user.id == current_user.id%>
           <form action= "/solutions/<%=@solution.id%>" method ="post">
@@ -23,10 +26,7 @@
     </div>
   </div>
 
-
-
-
-
+<!-- comment box -->
 <div class="col-md-8">
   <div class="card border-primary">
     <h5 class="card-header bg-primary text-info">Respond to <%=@problem.user.username.capitalize%></h5>
@@ -38,14 +38,25 @@
         </form>
 
         <hr>
-        <h5 class="card-title text-info">Comments:</h5>
 
+        <!-- Individual Comments -->
+        <h5 class="card-title text-info">Comments:</h5>
         <form>
           <div class="form-group row">
             <% @solution.comments.each do |comment|%>
-            <label for="comment_<%=comment.id%>" class="col-sm-2 col-form-label"><%=comment.user.username.capitalize%>:</label>
-            <div class="col-sm-10">
+            <label for="comment_<%=comment.id%>" class="text-right col-md-3 col-form-label"><%=comment.user.username.capitalize%>:</label>
+            <div class="col-md-9">
               <input type="text" readonly class="form-control-plaintext" id="comment_<%=comment.id%>" value="<%=comment.content%>">
+              <!-- Edit and Delete Buttons for Comments -->
+              <%if comment.user.id == current_user.id%>
+              <form action= "/comments/<%=comment.id%>" method ="post">
+                <!-- <div class="form-group row"> -->
+                  <input type = "hidden" id ="hidden" name ="_method" value = "delete">
+                  <input type="submit" class="btn btn-sm btn-primary" value ="Delete">
+                  <a href ="/commments/<%=comment.id%>/edit" class ="btn btn-sm btn-info">Edit</a>
+                <!-- </div> -->
+              </form>
+              <%end%>
             </div>
             <% end%>
           </div>
