@@ -19,9 +19,9 @@
   <h2 class ="text-success"><%=@user.username.capitalize%>'s Portfolio</h2>
 <% end %>
 <!-- sidebar -->
-<div>
+
 <div class="row">
-  <div class="col-md-3 profile-column">
+  <aside class="col-md-3">
     <div class="card profile-info border-primary text-center" style="max-width: 100%;">
         <% if current_user.id == @user.id%>
           <img src ="<%=current_user.img_url%>" width =100>
@@ -53,13 +53,20 @@
           <a href="#" class="card-link">Card link</a>
           <a href="#" class="card-link">Another link</a>
       </div> -->
-    </div>
   </div>
+</aside>
 
+
+
+
+
+
+<main class ="col-m-8">
   <% if !@user.problems.nil? %>
     <%@user.problems.each do |problem|%>
     <% if !problem.solution.nil? %>
-      <div class="col-md-8">
+      <!-- <div class="container-fluid"> -->
+      <!-- <div class="col-md-8"> -->
         <div class="card border-primary">
           <h5 class="card-header bg-primary text-warning">Solution</h5>
           <div class="card-body">
@@ -68,25 +75,28 @@
             <a href="/solutions/<%=problem.solution.id%>" class="btn btn-success text-right">View</a>
           </div>
         </div>
-      </div>
+        <br>
+      <!-- </div> -->
+      <!-- </div> -->
     <%end%>
     <%end%>
     <% else %>
       <div class="col-md-8">
         <h2 class = "text-success">You have not solved any problems, yet. Let's investigate!</h2>
-      <div class="col-md-8">
+      </div>
   <%end%>
-
-</div>
-</div>
-
+</main>
+</div> <!-- row -->
 
 
 
 
 
 
-<h1>Problems: </h1>
+
+
+
+<!-- <h1>Problems: </h1>
 
 
 <% if !@user.problems.nil? %>
@@ -98,4 +108,4 @@
   <% end %>
 <% else %>
   You have not solved any problems, yet. Let's investigate!
-<% end %>
+<% end %> -->
