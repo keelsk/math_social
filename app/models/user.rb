@@ -13,4 +13,15 @@ class User < ActiveRecord::Base
     friends
   end
 
+  def get_friends_problems
+    problems = []
+    friends = self.get_friends
+    friends.each do |friend|
+      friend.problems.each do |problem|
+        problems << problem
+      end
+    end
+    problems.reverse()
+  end
+
 end

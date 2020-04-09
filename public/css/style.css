@@ -8,6 +8,7 @@ body {
 
 .navbar {
   background:#533A71;
+  width: 100%;
 }
 
 .nav-link,
@@ -28,6 +29,7 @@ body {
   justify-content: flex-end;
 }
 /*--------------features-------------*/
+
 .features {
   margin: 4em auto;
   padding: 1em;
@@ -48,6 +50,15 @@ body {
 
 
   /*--------------profile page--------------------*/
+
+  .profile-column {
+    height: 100%;
+  }
+
+  .content-top {
+    position: relative;
+    top: 100px;
+  }
 
 
 /*---------------recent nav bar ------------------*/

@@ -3,6 +3,7 @@ class ProblemsController < ApplicationController
     redirect "/" if !logged_in?
     user = current_user
     @friends = user.get_friends
+    @friends_problems = user.get_friends_problems
     erb :'problems/home'
   end
 

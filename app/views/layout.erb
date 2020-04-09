@@ -23,7 +23,7 @@
       <li><a href="/problem-home"><img src ="/images/logo.png" height =26></a></li>
     </ul>
   </div> -->
-
+<!-- <header class="page-header header container-fluid"> -->
   <nav class="navbar navbar-expand-md">
   <% if logged_in? %>
     <a class="navbar-brand" href="/problem-home"><img src ="/images/logo.png" height =42></a>
@@ -63,8 +63,8 @@
   </div>
 </nav>
 
-  <header class="page-header header container-fluid">
+  <div class="container-fluid content-top">
     <%= yield %>
-  </header>
+  </div>
 </body>
 </html>
