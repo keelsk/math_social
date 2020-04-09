@@ -1,53 +1,58 @@
-<div class ="form-group row">
-  <label for="problem" class="col-sm-2 col-form-label"><%=@problem.user.username.capitalize%>'s Problem</label>
-    <div class="col-sm-10">
-      <textarea name ="problem" class ="form-control" placeholder ="Problem:
-        <%=@problem.question%>
+<div class ="row features justify-content-center">
+  <div class="col-md-8">
+    <div class="card border-primary">
+      <h5 class="card-header bg-primary text-warning"><%=@problem.user.username.capitalize%>'s Problem</h5>
+        <div class="card-body">
+          <h5 class="card-title"><%=@problem.question%></h5>
+          <p class="card-text">Solution: </p>
+          <p><%= @solution.explanation%></p>
+          <p>My final answer is <%= @solution.student_answer%>.</p>
 
-        Solution:
-        <%= @solution.explanation%>
-
-        My final answer is <%= @solution.student_answer%>." readonly></textarea>
-    </div>
-</div>
-
-<!-- Delete Button -->
-
-<%if @problem.user.id == current_user.id%>
-<form action= "/solutions/<%=@solution.id%>" method ="post">
-  <div class="form-group row">
-    <input type = "hidden" id ="hidden" name ="_method" value = "delete">
-      <div class="col-sm-10 offset-sm-2">
-          <button type="submit" class="btn btn-primary">Delete Solution</button>
+          <%if @problem.user.id == current_user.id%>
+          <form action= "/solutions/<%=@solution.id%>" method ="post">
+            <div class="form-group row">
+              <input type = "hidden" id ="hidden" name ="_method" value = "delete">
+                <div class ="text-right">
+                    <button type="submit" class="btn btn-sm btn-primary pull-right">Delete Solution</button>
+                    <a href ="/solutions/<%=@solution.id%>/edit" class ="btn btn-sm btn-info pull-right">Edit</a>
+                </div>
+            </div>
+          </form>
+          <%end%>
       </div>
+    </div>
   </div>
-  <!-- <input type = "submit" value= "Delete Solution"> -->
-</form>
-<%end%>
 
 
-<!-- <h2>Problem: </h2>
-<%= @problem.question%><br>
-<h2>My Solution: </h2>
-<%= @solution.explanation%><br>
-My final answer is: <%= @solution.student_answer%><br><br> -->
-
-<a href ="/solutions/<%=@solution.id%>/edit">Edit</a>
 
 
-<!-- Delete Button -->
 
-<!-- Comments Begin -->
+<div class="col-md-8">
+  <div class="card border-primary">
+    <h5 class="card-header bg-primary text-info">Respond to <%=@problem.user.username.capitalize%></h5>
+      <div class="card-body">
+        <h5 class="card-title text-info">Write a Comment:</h5>
+        <form action ="/comments/<%=@solution.id%>" class ="form-group col-md-8" method ="post">
+         <textarea name ="content" class ="form-control" width ="100%" required></textarea><br>
+          <button type="submit" class="btn btn-sm btn-primary pull-right">Post Comment</button>
+        </form>
 
-<h2>Comments: </h2>
-<a href ="/comments/<%=@solution.id%>">Comment</a>
-<% @solution.comments.each do |comment|%>
-<%= comment.user.username%>:  <%= comment.content%> <a href ="/comments/<%=comment.id%>/edit">Edit</a>
-<form action ="/comments/<%=comment.id%>" method = "post">
-  <input type ="hidden" id ="hidden" name ="_method" value ="delete">
-  <input type ="submit" value="Delete Comment">
-<br>
-<% end%>
+        <hr>
+        <h5 class="card-title text-info">Comments:</h5>
+
+        <form>
+          <div class="form-group row">
+            <% @solution.comments.each do |comment|%>
+            <label for="comment_<%=comment.id%>" class="col-sm-2 col-form-label"><%=comment.user.username.capitalize%>:</label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="comment_<%=comment.id%>" value="<%=comment.content%>">
+            </div>
+            <% end%>
+          </div>
+        </form>
 
 
-<!-- <a href ="/problems/<%=current_user.username%>">View My Portfolio</a> -->
+    </div>
+  </div>
+</div>
+</div>
