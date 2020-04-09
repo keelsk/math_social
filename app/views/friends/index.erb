@@ -1,10 +1,34 @@
 <h1>My Math Buddies</h1>
 You have <%=@friends.size%> Math Buddies! <br>
-<%@friends.each do |friend|%>
-    <em><%=friend.username%></em><br>
-    <a href="/problems/:username"> <img src ="<%=friend.img_url%>" width ="100"></a><br>
-    <form action ="/friends/<%=friend.username%>" method = "post">
-      <input type ="hidden" id ="hidden" name ="_method" value ="delete">
-      <input type ="submit" value ="Remove Friend">
-    </form><br>
-<% end %>
+
+<div class="row justify-content-center">
+<div class="col-md-8 mb-3">
+<%@friend_rows.each do |row|%>
+  <div class="card-deck">
+    <%row.each do |friend|%>
+      <div class="card text-center border-primary">
+        <!-- <form class="card-header bg-primary text-warning" action ="/friends/<%=friend.username%>" method = "post">
+        <input type ="hidden" id ="hidden" name ="_method" value ="delete">
+        <input type ="submit" value ="Unfollow" class ="btn-sm btn-success">
+        </form> -->
+        <h5 class="card-header bg-primary text-warning"><%=friend.username.capitalize%></h5>
+        <ul class="list-group list-group-flush text-left">
+          <li class="list-group-item text-center">
+            <!-- <%=friend.username.capitalize%> -->
+            <form action ="/friends/<%=friend.username%>" method = "post">
+            <input type ="hidden" id ="hidden" name ="_method" value ="delete">
+            <input type ="submit" value ="Unfollow" class ="btn-sm btn-success">
+            </form>
+        </li>
+        </ul>
+        <div class ="h-100 justify-content-center"">
+          <a class = "text-center" href = "/problems/<%=friend.username%>"><img src="<%=friend.img_url%>" alt="profile picture" width =100px></a>
+        </div>
+        <!-- <div class="card-body">
+        </div> -->
+      </div>
+    <%end%>
+  </div>
+<%end%>
+</div>
+</div>

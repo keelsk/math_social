@@ -24,7 +24,9 @@
   <aside class="col-md-3">
     <div class="card profile-info border-primary text-center" style="max-width: 100%;">
         <% if current_user.id == @user.id%>
-          <img src ="<%=current_user.img_url%>" width =100>
+          <div class ="text-center">
+            <img src ="<%=current_user.img_url%>" width =100>
+          </div>
         <% else%>
           <img src ="<%=@user.img_url%>" width =100>
         <% end%>

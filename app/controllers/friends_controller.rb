@@ -1,6 +1,7 @@
 class FriendsController < ApplicationController
   get "/friends/:id" do
     @friends = current_user.get_friends
+    @friend_rows = @friends.each_slice(6).to_a if !@friends.empty?
     erb :"friends/index"
   end
 
