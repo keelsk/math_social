@@ -1,8 +1,7 @@
 
 <h2 class ="text-success"> Welcome, <%=current_user.username.capitalize%>!</h2>
-<div class ="profile">
 <div class="row">
-  <div class="col-md-3 profile-column">
+  <aside class="col-md-3">
     <div class="card profile-info border-primary text-center" style="max-width: 100%;">
       <a href ="/problems/<%=current_user.username%>"><img src ="<%=current_user.img_url%>" class ="center" width =100></a>
       <!-- <img class="card-img-top" src ="<%=current_user.img_url%>" alt="Profile Picture" width =50%> -->
@@ -24,11 +23,13 @@
           <a href="#" class="card-link">Another link</a>
       </div> -->
     </div>
-  </div>
+  </aside>
 
-
+<main class ="col-md-8">
+  <% if !@friends_problems.empty? %>
   <%@friends_problems.each do |problem|%>
-  <div class="col-md-8">
+  <% if !problem.solution.nil? %>
+  <!-- <div class="col-md-8"> -->
     <div class="card border-primary">
       <h5 class="card-header bg-primary text-warning">Solution</h5>
         <div class="card-body">
@@ -37,12 +38,18 @@
           <a href="/solutions/<%=problem.solution.id%>" class="btn btn-success text-right">View</a>
       </div>
     </div>
-  </div>
+  <!-- </div> -->
   <%end%>
-
+  <%end%>
+  <% else %>
+    <div class="col-md-8">
+      <h2 class = "text-success">Your math buddies have not solved any problems, yet!</h2>
+    </div>
+<%end%>
+</main>
 
 </div>
-</div>
+
 
 
 
