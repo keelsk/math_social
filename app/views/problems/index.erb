@@ -23,27 +23,31 @@
 <div class="row">
   <aside class="col-md-3">
     <div class="card profile-info border-primary text-center" style="max-width: 100%;">
+      <div class ="text-center">
         <% if current_user.id == @user.id%>
-          <div class ="text-center">
             <img src ="<%=current_user.img_url%>" width =100>
-          </div>
         <% else%>
           <img src ="<%=@user.img_url%>" width =100>
         <% end%>
+      </div>
       <div class="card-body">
           <h5 class="card-title text-success"><%=@user.username.capitalize%></h5>
-          <p class="card-text text-left">This is your robot. The more problems you solve the more things your robot will be able to do! Make sure you help your friends and solve as many problems as possible!</p>
+          <% if current_user.id == @user.id%>
+            <p class="card-text text-left">This is your robot. The more problems you solve the more things your robot will be able to do! Make sure you help your friends and solve as many problems as possible!</p>
+          <% else %>
+            <p class="card-text text-left">This is <% @user.username %>'s robot. The more problems your math buddy solves, the more things this robot will be able to do! Make sure you help your math buddy's robot by commenting on problems and giving math advice!</p>
+          <% end %>
       </div>
       <ul class="list-group list-group-flush text-left">
         <li class="list-group-item"> </li>
         <% if current_user.id != @user.id %>
           <% if current_user.friends.any? {|friend| friend.username == @user.username} %>
-                <li class="list-group-item">You and <%= @user.username %> are Math Buddies!</li>
+                <li class="list-group-item">You and <%= @user.username.capitalize %> are Math Buddies!</li>
           <% else %>
                 <a href ="/friends/<%=@user.username%>/add" class = "btn-sm btn-success">Add Math Buddy</a><br>
           <% end %>
         <% end %>
-        <li class="list-group-item"><%=@user.problems.size%> problems solved</li>
+        <li class="list-group-item"><%=@solution_count%> problems solved</li>
           <li class="list-group-item">Math Buddies</li>
       </ul>
       <div class="text-left">

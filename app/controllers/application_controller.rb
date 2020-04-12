@@ -12,7 +12,8 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     @session = session
-     erb :index
+    redirect '/problem-home' if logged_in?
+    erb :index
   end
 
   helpers do

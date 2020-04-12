@@ -1,11 +1,14 @@
 class FriendsController < ApplicationController
   get "/friends/:id" do
+    redirect "/login" if !logged_in?
+    redirect "/problem-home" if params[:id] != current_user.id
     @friends = current_user.get_friends
     @friend_rows = @friends.each_slice(6).to_a if !@friends.empty?
     erb :"friends/index"
   end
 
   get "/friends/:username/add" do
+    redirect "/login" if !logged_in?
     friend = Friend.find_or_create_by(username: params[:username])
     current_user.friends << friend
     redirect "/friends/#{current_user.id}"
