@@ -81,7 +81,15 @@ class ApplicationController < Sinatra::Base
         "join" => {
           "join result" => [
             "Jill has #{@min} marbles. Her mother gives her #{@max} marbles. How many marbles does she have now?",
-            "Hey"
+            "Molly has #{@max} marbles in her collection. She buys #{@min} more marbles for her collection. How many marbles does she have now?",
+            "Micca made #{@min} brownies for the school bake sale. Her mom baked #{@max} more brownies for the bake sale. How many brownies can be sold at the bake sale?",
+            "James has #{@max} Pokémon cards at home. His best friend gave him #{@min} more Pokemon cards on his birthday. How many cards does James have now?",
+            "Eric has #{@min} dollars in his piggy bank. He earned #{@max} dollars for cutting grass in the neighborhood. How much money does Eric have now?",
+            "Sheri has #{@max} bracelets that she can sell. She made #{@min} more bracelets that afternoon. How many bracelets can she sell tomorrow?",
+            "The bookstore manager has #{@min} books in stock. She ordered #{@max} more books to sell. How many books are in stock now?",
+            "The chocolate factory has #{@max} cacao beans. Another shipment carrying #{@min} cacao beans arrived at the factory. How many cacao beans can be used to make chocolate in the factory?",
+            "Jillian has #{@min} points on a video game. She earned #{@max} more points before she stopped playing. How many points does she have now?",
+            "Mrs. Ramsay has #{@max} pencils in her classroom. She bought #{@min} additional pencils for her students to use. How many pencils does she have now?"
           ],
           "join change" => [
             "Jim has #{@min} toy cars. John gives him some more toy cars. Now Jim has #{@max} toy cars. How many toy cars did John give Jim?",
