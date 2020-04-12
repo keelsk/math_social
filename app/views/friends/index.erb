@@ -2,6 +2,7 @@
 You have <%=@friends.size%> Math Buddies! <br>
 
 <div class="row justify-content-center">
+<%if @friends.size > 0%>
 <div class="col-md-8 mb-3">
 <%@friend_rows.each do |row|%>
   <div class="card-deck">
@@ -31,4 +32,32 @@ You have <%=@friends.size%> Math Buddies! <br>
   </div>
 <%end%>
 </div>
+<%end%>
+</div>
+
+<h1>Math Social Users:
+<div class="row justify-content-center">
+<div class="col-md-8 mb-3">
+<%@other_users_rows.each do |row|%>
+  <div class="card-deck">
+    <%row.each do |user|%>
+      <div class="card text-center border-primary" style="width: 18rem;">
+        <h5 class="card-header bg-primary text-warning"><%=user.username.capitalize%></h5>
+        <ul class="list-group list-group-flush text-left">
+          <li class="list-group-item text-center">
+            <a href ="/friends/<%=user.username%>/add" class = "btn-sm btn-success">Follow</a>
+        </li>
+        </ul>
+        <div class ="justify-content-center"">
+          <img src="<%=user.img_url%>" alt="profile picture" width =100px>
+        </div>
+        <!-- <div class="card-body">
+        </div> -->
+      </div>
+    <%end%>
+  </div>
+  <br>
+<%end%>
+</div>
+
 </div>

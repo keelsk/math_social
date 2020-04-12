@@ -35,7 +35,7 @@
           <% if current_user.id == @user.id%>
             <p class="card-text text-left">This is your robot. The more problems you solve the more things your robot will be able to do! Make sure you help your friends and solve as many problems as possible!</p>
           <% else %>
-            <p class="card-text text-left">This is <% @user.username %>'s robot. The more problems your math buddy solves, the more things this robot will be able to do! Make sure you help your math buddy's robot by commenting on problems and giving math advice!</p>
+            <p class="card-text text-left">This is <%= @user.username.capitalize %>'s robot. The more problems your math buddy solves, the more things this robot will be able to do! Make sure you help your math buddy's robot by commenting on problems and giving math advice!</p>
           <% end %>
       </div>
       <ul class="list-group list-group-flush text-left">
@@ -44,11 +44,11 @@
           <% if current_user.friends.any? {|friend| friend.username == @user.username} %>
                 <li class="list-group-item">You and <%= @user.username.capitalize %> are Math Buddies!</li>
           <% else %>
-                <a href ="/friends/<%=@user.username%>/add" class = "btn-sm btn-success">Add Math Buddy</a><br>
+                <a href ="/friends/<%=@user.username%>/add" class = "btn-sm btn-success">Follow</a><br>
           <% end %>
         <% end %>
         <li class="list-group-item"><%=@solution_count%> problems solved</li>
-          <li class="list-group-item">Math Buddies</li>
+          <li class="list-group-item"><%=@user.friends.size%> Math Buddies</li>
       </ul>
       <div class="text-left">
         <%@user.get_friends.each do |friend|%>
@@ -87,11 +87,12 @@
       <!-- </div> -->
     <%end%>
     <%end%>
-    <% else %>
-      <div class="col-md-8">
-        <h2 class = "text-success">You have not solved any problems, yet. Let's investigate!</h2>
-      </div>
   <%end%>
+    <% if @solution_count == 0 && current_user.id == @user.id%>
+      <h2 class ="text-success">You have not solved any problems, yet. Let's investigate!</h2>
+    <%elsif @solution_count == 0%>
+      <h2 class ="text-success"><%=@user.username.capitalize%> has not solved any problems, yet. Check back later to see your buddy's progress!</h2>
+    <%end%>
 </main>
 </div> <!-- row -->
 

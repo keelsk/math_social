@@ -1,9 +1,10 @@
 class FriendsController < ApplicationController
   get "/friends/:id" do
     redirect "/login" if !logged_in?
-    redirect "/problem-home" if params[:id] != current_user.id
     @friends = current_user.get_friends
-    @friend_rows = @friends.each_slice(6).to_a if !@friends.empty?
+    @friend_rows = @friends.each_slice(4).to_a if !@friends.empty?
+    @other_users = User.all.select {|user| !current_user.friends.include?(user.username) && user.id != current_user.id}
+    @other_users_rows = @other_users.each_slice(4) if !@other_users.empty?
     erb :"friends/index"
   end
 
