@@ -8,14 +8,9 @@ You have <%=@friends.size%> Math Buddies! <br>
   <div class="card-deck">
     <%row.each do |friend|%>
       <div class="card text-center border-primary">
-        <!-- <form class="card-header bg-primary text-warning" action ="/friends/<%=friend.username%>" method = "post">
-        <input type ="hidden" id ="hidden" name ="_method" value ="delete">
-        <input type ="submit" value ="Unfollow" class ="btn-sm btn-success">
-        </form> -->
         <h5 class="card-header bg-primary text-warning"><%=friend.username.capitalize%></h5>
         <ul class="list-group list-group-flush text-left">
           <li class="list-group-item text-center">
-            <!-- <%=friend.username.capitalize%> -->
             <form action ="/friends/<%=friend.username%>" method = "post">
             <input type ="hidden" id ="hidden" name ="_method" value ="delete">
             <input type ="submit" value ="Unfollow" class ="btn-sm btn-success">
@@ -25,8 +20,6 @@ You have <%=@friends.size%> Math Buddies! <br>
         <div class ="h-100 justify-content-center"">
           <a class = "text-center" href = "/problems/<%=friend.username%>"><img src="<%=friend.img_url%>" alt="profile picture" width =100px></a>
         </div>
-        <!-- <div class="card-body">
-        </div> -->
       </div>
     <%end%>
   </div>
@@ -51,8 +44,6 @@ You have <%=@friends.size%> Math Buddies! <br>
         <div class ="justify-content-center"">
           <img src="<%=user.img_url%>" alt="profile picture" width =100px>
         </div>
-        <!-- <div class="card-body">
-        </div> -->
       </div>
     <%end%>
   </div>

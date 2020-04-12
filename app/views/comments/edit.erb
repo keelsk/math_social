@@ -24,64 +24,7 @@
               <textarea name ="content" class ="form-control" width ="100%" value="<%=@comment.content%>" required></textarea><br>
               <button type="submit" class="btn btn-sm btn-primary pull-right">Save</button>
             </form>
-
-            <!-- <hr> -->
-
-            <!-- Individual Comments -->
-            <!-- <h5 class="card-title text-info">Comments:</h5> -->
-            <!-- <form>
-              <div class="form-group row">
-                <% @solution.comments.each do |comment|%>
-                <label for="comment_<%=comment.id%>" class="text-right col-md-3 col-form-label"><%=comment.user.username.capitalize%>:</label>
-                <div class="col-md-9">
-                  <input type="text" readonly class="form-control-plaintext" id="comment_<%=comment.id%>" value="<%=comment.content%>">
-                  <!-- Edit and Delete Buttons for Comments -->
-                  <!-- <%if comment.user.id == current_user.id%>
-                  <form action= "/comments/<%=comment.id%>" method ="post">
-                    <!-- <div class="form-group row"> -->
-                      <!-- <input type = "hidden" id ="hidden" name ="_method" value = "delete">
-                      <input type="submit" class="btn btn-sm btn-primary" value ="Delete">
-                      <a href ="/comments/<%=comment.id%>/edit" class ="btn btn-sm btn-info">Edit</a> -->
-                    <!-- </div> -->
-                  <!-- </form>
-                  <%end%>
-                </div>
-                <% end%>
-              </div>
-            </form> -->
-
-
         </div>
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-<!-- <h1>Problem:</h1>
-<%=@problem.question%>
-
-<h2>Current Solution: </h2>
-<%= @solution.explanation%><br>
-Current numerical answer is: <%= @solution.student_answer%><br><br>
-
-
-<form action ="/comments/<%=@comment.id%>" method ="post">
-  <input type ="hidden" id ="hidden" name ="_method" value ="patch">
-  Edit: <textarea name ="content" value = "<%=@comment.content%>" required></textarea><br>
-  <input type ="submit" name ="Submit">
-</form>
-
-<br>
-
-<h2>Previous Comments: </h2>
-<% @solution.comments.each do |comment|%>
-<%= comment.user.username%>:  <%= comment.content%><br>
-<% end%> -->

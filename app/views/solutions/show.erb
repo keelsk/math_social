@@ -27,7 +27,6 @@
 <!-- comment box -->
 <div class="col-md-8">
   <div class="card border-primary">
-    <!-- <h5 class="card-header bg-primary text-info">Respond to <%=@problem.user.username.capitalize%></h5> -->
       <div class="card-body">
         <h5 class="card-title text-success">Write a Comment:</h5>
         <form action ="/comments/<%=@solution.id%>" class ="form-group col-md-8" method ="post">
@@ -48,11 +47,9 @@
               <!-- Edit and Delete Buttons for Comments -->
               <%if comment.user.id == current_user.id%>
               <form action= "/comments/<%=comment.id%>" method ="post">
-                <!-- <div class="form-group row"> -->
                   <input type = "hidden" id ="hidden" name ="_method" value = "delete">
                   <input type="submit" class="btn btn-sm btn-primary" value ="Delete">
                   <a href ="/comments/<%=comment.id%>/edit" class ="btn btn-sm btn-info">Edit</a>
-                <!-- </div> -->
               </form>
               <%end%>
             </div>

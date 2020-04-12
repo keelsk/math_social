@@ -9,21 +9,7 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <!-- <div id ="nav">
-    <ul>
-      <% if logged_in? %>
-      <li><a href="/logout">Logout</a></li>
-      <li><a href="/friends/<%=current_user.id%>">Math Buddies</a></li>
-      <li><a href="/problems/<%=current_user.username%>">Portfolio</a></li>
-      <li><a href="/problems/new">Investigate</a></li>
-      <%else %>
-      <li><a href="/signup">Join</a></li>
-      <li><a href="/login">Log in</a></li>
-      <%end %>
-      <li><a href="/problem-home"><img src ="/images/logo.png" height =26></a></li>
-    </ul>
-  </div> -->
-<!-- <header class="page-header header container-fluid"> -->
+  
   <nav class="navbar navbar-expand-md">
   <% if logged_in? %>
     <a class="navbar-brand" href="/problem-home"><img src ="/images/logo.png" height =42></a>

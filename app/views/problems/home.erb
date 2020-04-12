@@ -4,7 +4,6 @@
   <aside class="col-md-3">
     <div class="card profile-info border-primary text-center" style="max-width: 100%;">
       <a href ="/problems/<%=current_user.username%>"><img src ="<%=current_user.img_url%>" class ="center" width =100></a>
-      <!-- <img class="card-img-top" src ="<%=current_user.img_url%>" alt="Profile Picture" width =50%> -->
       <div class="card-body">
           <h5 class="card-title text-success"><%=current_user.username.capitalize%></h5>
           <p class="card-text text-left">This is your robot. The more problems you solve the more things your robot will be able to do! Make sure you help your friends and solve as many problems as possible!</p>
@@ -18,10 +17,6 @@
           <a href ="/problems/<%=friend.username%>"><img src ="<%=friend.img_url%>" width =50></a>
         <%end%>
       </div>
-      <!-- <div class="card-body text-left">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-      </div> -->
     </div>
   </aside>
 
@@ -29,7 +24,6 @@
   <% if !@friends_problems.empty? %>
   <%@friends_problems.each do |problem|%>
   <% if !problem.solution.nil? %>
-  <!-- <div class="col-md-8"> -->
     <div class="card border-primary">
       <h5 class="card-header bg-primary text-warning"><%=problem.user.username.capitalize%>'s Solution</h5>
         <div class="card-body">
@@ -37,7 +31,6 @@
           <a href="/solutions/<%=problem.solution.id%>" class="btn btn-success text-right">View</a>
       </div>
     </div>
-  <!-- </div> -->
   <%end%>
   <%end%>
   <% else %>
@@ -48,20 +41,3 @@
 </main>
 
 </div>
-
-
-
-
-
-<!-- <h1><%=current_user.username %>'s Portfolio:</h1>
-<a href ="/problems/<%=current_user.username%>"><img src ="<%=current_user.img_url%>" width =100></a>
-Review the problems you solved, but don't stop there! Make sure you solve more problems to add to your portfolio!
-
-<a href ="/problems/<%=current_user.username%>">View my Portfolio</a>
-
-<h1>Investigate with Friends:</h1>
-Check out your <a href ="/friends/<%=current_user.id%>">friends' portfolios</a> and give helpful hints about their math solutions!
-
-<%@friends.each do |friend|%>
-<a href ="/problems/<%=friend.username%>"><img src ="<%=friend.img_url%>" width =100></a>
-<%end%> -->
