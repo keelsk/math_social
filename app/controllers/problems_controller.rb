@@ -14,14 +14,7 @@ class ProblemsController < ApplicationController
     @solution_count = @user.problems.count do |problem|
         !problem.solution.nil?
     end
-    # @solution_count = @user.problems.size - no_solution
-    # if current_user.id != @user.id
-    #   flash[:message] = "You do not have permission to access this page."
-    #   redirect "/problem-home"
-    # else
-      # @problems = @user.problems || ""
-      erb :'problems/index'
-    # end
+    erb :'problems/index'
   end
 
 end

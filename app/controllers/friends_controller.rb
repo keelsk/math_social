@@ -18,7 +18,6 @@ class FriendsController < ApplicationController
   delete "/friends/:friend_username" do
     friend = Friend.find_by(username: params[:friend_username])
     current_user.friends.delete(friend)
-    # friend.destroy
     id = current_user.id
     redirect "/friends/#{id}"
   end
