@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if params[:username] == "" || params[:password] == ""
+    if params[:username] == "" || params[:password] == "" || User.all.any?{|user| user.username == params[:username]}
       flash[:message] = "Please enter a valid username and password."
       redirect '/signup'
     end
