@@ -84,94 +84,162 @@ class ApplicationController < Sinatra::Base
             "Molly has #{@max} marbles in her collection. She buys #{@min} more marbles for her collection. How many marbles does she have now?",
             "Micca made #{@min} brownies for the school bake sale. Her mom baked #{@max} more brownies for the bake sale. How many brownies can be sold at the bake sale?",
             "James has #{@max} Pokémon cards at home. His best friend gave him #{@min} more Pokemon cards on his birthday. How many cards does James have now?",
-            "Eric has #{@min} dollars in his piggy bank. He earned #{@max} dollars for cutting grass in the neighborhood. How much money does Eric have now?",
-            "Sheri has #{@max} bracelets that she can sell. She made #{@min} more bracelets that afternoon. How many bracelets can she sell tomorrow?",
-            "The bookstore manager has #{@min} books in stock. She ordered #{@max} more books to sell. How many books are in stock now?",
-            "The chocolate factory has #{@max} cacao beans. Another shipment carrying #{@min} cacao beans arrived at the factory. How many cacao beans can be used to make chocolate in the factory?",
-            "Jillian has #{@min} points on a video game. She earned #{@max} more points before she stopped playing. How many points does she have now?",
-            "Mrs. Ramsay has #{@max} pencils in her classroom. She bought #{@min} additional pencils for her students to use. How many pencils does she have now?"
+            "Eric has #{@min} dollars in his piggy bank. He earned #{@max} dollars for cutting grass in the neighborhood. How much money does Eric have now?"
           ],
           "join change" => [
             "Jim has #{@min} toy cars. John gives him some more toy cars. Now Jim has #{@max} toy cars. How many toy cars did John give Jim?",
-            "bye"
+            "Kassidy earned #{@min} points while playing a game. He earned some more points during the next week. At the end of that week, he has #{@max} points. How many points did he earn that week?",
+            "Akeelah read #{@min} words this morning. After lunch, she reads some more words. At the end of the day, she has read #{@max} words. How many words did Akeelah read after lunch",
+            "Blake has #{@min} toy airplanes. Blythe gives him some more airplanes. Now he has #{@max} airplanes. How many airplanes did Blythe give Blake?",
+            "James has #{@min} model cars. Nicholas gives him some more model cars. Now he has #{@max} model cars. How many cars did Nicholas give James?"
           ],
           "join start" => [
-            "-"
+            "There are some birds perched in a tree. #{@min} more birds perch on the tree's branches. Now there are #{@max} birds in the tree. How many birds were in the tree before the other birds joined them?",
+            "Molly has some money in her bank account. She put #{@min} dollars in her account. Now she has #{@max} dollars. How much money did Molly have to start with?",
+            "Jenny has some marbles. Kelley gave her #{@min} marbles. Now Jenny has #{@max} marbles. How many marbles did Jenny have before Kelley gave her some more?",
+            "Chris has some toys. His mom gave him #{@min} toys. Now, he has #{@max} toys. How many toys did Chris have before his mom gave him some more?",
+            "Micca baked some cakes for the bake sale. She made #{@min} more cakes, because she didn't think she had enough. Now she has #{@max} cakes. How many cakes did Micca have before she baked some more?"
           ]
         },
 
         "separate" => {
           "separate result" => [
-            "-"
+            "Ryan has #{@max} seashells in his collection. He lost #{@min}. How many seashells are in his collection now?",
+            "Maria has #{@max} cookies. She gives #{@min} cookies to her best friend. How many cookes does Maria have now?",
+            "",
+            "",
+            ""
           ],
           "separate change" => [
-            "-"
+            "",
+            "",
+            "",
+            "",
+            ""
           ],
           "separate start" => [
-            "-"
+            "",
+            "",
+            "",
+            "",
+            ""
           ]
         },
 
         "part part whole" => {
           "part unknown" => [
-            "-"
+            "",
+            "",
+            "",
+            "",
+            ""
           ],
           "whole unknown" => [
-            "-"
+            "",
+            "",
+            "",
+            "",
+            ""
           ]
         },
 
         "compare" => {
           "difference unknown" => [
-            "-"
+            "",
+            "",
+            "",
+            "",
+            ""
           ],
           "quantity more" => [
-            "-"
+            "",
+            "",
+            ""
           ],
           "quantity less" => [
-            "-"
+            "",
+            ""
           ],
           "referent more" => [
-            "-"
+            "",
+            "",
+            ""
           ],
           "referent less" => [
-            "-"
+            "",
+            ""
           ]
         },
 
         "equal groups" => {
           "product unknown" => [
-            "-"
+            "",
+            "",
+            "",
+            "",
+            ""
           ],
           "group size" => [
-            "-"
+            "",
+            "",
+            "",
+            "",
+            ""
           ],
           "number of groups" => [
-            "-"
+            "",
+            "",
+            "",
+            "",
+            ""
           ]
         },
 
         "array" => {
           "product unknown" => [
-            "-"
+            "",
+            "",
+            "",
+            "",
+            ""
           ],
           "rows unknown" => [
-            "-"
+            "",
+            "",
+            "",
+            "",
+            ""
           ],
           "columns unknown" => [
-            "-"
+            "",
+            "",
+            "",
+            "",
+            ""
           ]
         },
 
         "multiplicative comparison" => {
           "product unknown" => [
-            "1"
+            "",
+            "",
+            "",
+            "",
+            ""
           ],
           "multiplier unknown" => [
-            "1"
+            "",
+            "",
+            "",
+            "",
+            ""
           ],
           "referent unknown" => [
-            "1"
+            "",
+            "",
+            "",
+            "",
+            ""
           ]
         }
       }
