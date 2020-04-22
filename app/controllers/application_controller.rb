@@ -106,23 +106,23 @@ class ApplicationController < Sinatra::Base
           "separate result" => [
             "Ryan has #{@max} seashells in his collection. He lost #{@min}. How many seashells are in his collection now?",
             "Maria has #{@max} cookies. She gives #{@min} cookies to her best friend. How many cookes does Maria have now?",
-            "",
-            "",
-            ""
+            "Karinna has #{@max} crayons, but she broke #{@min} crayons. How many crayons does she have now?",
+            "Maurice saved #{@max} songs on his playlist, but he accidentally deleted #{@min} songs. How many songs are on his playlist now?",
+            "John has #{@max} popsicles. He gives out #{@min} popsicles at his party. How many popsicles does he have now? "
           ],
           "separate change" => [
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Mary grew #{@max} tulips in her garden. She sold some tulips. Now she has #{@min} tulips. How many tulips did Mary sell?",
+            "Julia baked #{@max} brownies. Her brother ate some brownies. Now she has #{@min} brownies. How many brownies did her brother eat?",
+            "The school library started the school year with #{@max} books. Some books were not returned to the library. Now the library has #{@min} books. How many books were lost during the school year? ",
+            "The comic book store had #{@max} comics at the beginning of the week. During the week, some customers purchased comic books. Now the comic book store has #{@min} comics. How many comic books did the customers purchase?",
+            "The museum gift shop had #{@max} souvenirs in the gift shop. Some customers bought some souvenirs. Now there are #{@min} souvenirs in the gift shop. How many souvenirs did the customers buy?"
           ],
           "separate start" => [
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Some kids were playing on the playground. #{@max} kids went home. Now there are #{@min} kids playing on the playground. How many kids were playing at first?",
+            "Stephanie had some candy. She gave Marcus #{@min} pieces of candy. Now she has #{@max} pieces of candy. How many pieces of candy did Stephanie have to begin with? ",
+            "Eric has some cups of flour in the pantry. He used #{@max} cups to bake cookies. Now he has #{@min} cups of flour. How many cups of flour did he have in the pantry to start with?",
+            "Joy picked some apples. She gave #{@max} apples to her mom. Now, Joy has #{@min} apples. How many apples did Joy pick to begin with?",
+            "Casey has some Pokemon cards. She lost #{@max} cards. Now she has #{@min} cards. How many Pokemon cards did Casey have to start with?"
           ]
         },
 
@@ -135,11 +135,11 @@ class ApplicationController < Sinatra::Base
             ""
           ],
           "whole unknown" => [
-            "",
-            "",
-            "",
-            "",
-            ""
+            "There are #{@max} marigolds and #{@min} daffodils in Maria's garden. How many flowers are in her garden?",
+            "Jenna made #{@min} brownies and #{@max} cakes for the bake sale. How many treats did Jenna make for the bake sale?",
+            "Michael has #{@max} books on his bookshelf and #{@min} books in his cabinet. How many books does Michael have?",
+            "#{@min} students wrote a report for their final project, and #{@max} students performed a skit for their final project. How many students submitted a final project?",
+            "The classroom library has #{@max} books about science and #{@min} books about math. How many books are in the classroom library?"
           ]
         },
 
@@ -182,14 +182,9 @@ class ApplicationController < Sinatra::Base
           "group size" => [
             "",
             "",
-            "",
-            "",
             ""
           ],
           "number of groups" => [
-            "",
-            "",
-            "",
             "",
             ""
           ]
@@ -205,14 +200,9 @@ class ApplicationController < Sinatra::Base
           ],
           "rows unknown" => [
             "",
-            "",
-            "",
-            "",
             ""
           ],
           "columns unknown" => [
-            "",
-            "",
             "",
             "",
             ""
@@ -229,14 +219,9 @@ class ApplicationController < Sinatra::Base
           ],
           "multiplier unknown" => [
             "",
-            "",
-            "",
-            "",
             ""
           ],
           "referent unknown" => [
-            "",
-            "",
             "",
             "",
             ""
