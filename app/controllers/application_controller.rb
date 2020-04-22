@@ -1,5 +1,6 @@
 require 'pry'
-require 'rack-flash'
+require 'sinatra'
+require 'sinatra/flash'
 class ApplicationController < Sinatra::Base
 
   configure do
@@ -7,7 +8,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "password_security"
-    use Rack::Flash
+    register Sinatra::Flash
   end
 
   get '/' do

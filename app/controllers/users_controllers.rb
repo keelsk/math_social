@@ -20,8 +20,12 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if params[:username] == "" || params[:password] == "" || User.all.any?{|user| user.username == params[:username]}
-      flash[:message] = "Please enter a valid username and password."
+    if params[:username] == "" || params[:password] == "" || User.all.any?{|user| user.username.downcase == params[:username].downcase}
+      if User.all.any?{|user| user.username.downcase == params[:username].downcase}
+        flash[:message] = "Please choose another username. The username you entered is already in use."
+      else
+        flash[:message] = "Please enter a valid username and password."
+      end
       redirect '/signup'
     end
     params[:img_url] = generate_image
