@@ -49,7 +49,7 @@ class ApplicationController < Sinatra::Base
       problem_type = ["difference unknown", "quantity more", "quantity less", "referent more", "referent less"].sample if @structure == "compare"
       problem_type = ["product unknown", "group size", "number of groups"].sample if @structure == "equal groups"
       problem_type = ["product unknown", "rows unknown", "columns unknown"].sample if @structure == "array"
-      problem_type = ["product unknown", "multiplier unknown", "referent unknown"].sample if @structure == "multiplicative comparison"
+      problem_type = "product unknown" if @structure == "multiplicative comparison"
       problem_type
     end
 
@@ -193,39 +193,30 @@ class ApplicationController < Sinatra::Base
 
         "array" => {
           "product unknown" => [
-            "",
-            "",
-            "",
-            "",
-            ""
+            "The classroom rug has #{@max} rows of tiny dots. Each row has #{@min} dots. How many tiny dots are on the rug?",
+            "There are #{@max} rows in the auditorium. If there are #{@min} seats in each row, how many people can fit in the auditorium?",
+            "There were #{@max} rows of people marching in the parade. If there were #{@min} people in each row, how many people marched in the parade?",
+            "The gardener planeted #{@max} rows of vegetables. He planted #{@min} vegetables in each row. How many vegetables did he plant?",
+            "The marching band stood in #{@min} rows. In each row there were #{@max} band members. How many people are in the marchingx band?"
           ],
           "rows unknown" => [
-            "",
-            ""
+            "There are #{@max} flowers in the garden. If there are #{@min} flowers in each row, how many full rows of flowers are in the garden?",
+            "There are #{@max} macaroons in a bakery. If #{@min} macaroons fit in a box, how many full boxes of macaroons can be sold?"
           ],
           "columns unknown" => [
-            "",
-            "",
-            ""
+            "A marching band has #{@max} members. They march in rows of #{@min}. How many band members are in each row?",
+            "There are #{@max} people attending an awards ceremony. If they are seated in #{@min} rows, how many people are in each full row?",
+            "There are #{@max} sunflowers in a field. If there are #{@min} rows, how many people are in each full row?"
           ]
         },
 
         "multiplicative comparison" => {
           "product unknown" => [
-            "",
-            "",
-            "",
-            "",
-            ""
-          ],
-          "multiplier unknown" => [
-            "",
-            ""
-          ],
-          "referent unknown" => [
-            "",
-            "",
-            ""
+            "Jeremy has #{@min} times as many friends as Steven. If Steven has #{@max} friends, how many friends does Jeremy have?",
+            "Lance practices basketball #{@min} times as much as Paul. If Paul practices #{@max} minutes per month, How much does Lance practice?",
+            "Kaleb raised #{@min} times as much money as Steven did during the fundraiser. If Steven raised #{@max} dollars, how much money did Kaleb raise?",
+            "Tasha watched #{@min} times as much television as Sonya. If Sonya watched #{@max} minutes of television, how much television did Tasha watch?",
+            "Malik has saved #{@min} times as many songs on his phone than Leah. If Leah has #{@max} songs on her phone, how many songs does Malik have on his?"
           ]
         }
       }
