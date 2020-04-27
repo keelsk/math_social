@@ -181,13 +181,13 @@ class ApplicationController < Sinatra::Base
             "Matthew and his friends picked #{@max} cartons of strawberries. There were #{@min} strawberries in each carton. How many strawberries did they pick?"
           ],
           "group size" => [
-            "",
-            "",
-            ""
+            "Ms. Green had #{@max} treats to put in treat bags. If she made #{@min} treat bags and put the same amount of candy in each bag, how many full treat bags can she make?",
+            "Gina has #{@max} bracelets. If she put the same amount of bracelets in #{@min} boxes. How many bracelets were in each box?",
+            "There are #{@max} books in the library. If the librarian places the books on #{@min} bookshelves and each bookshelf holds the same amount of books, how many books fit on one bookshelf?"
           ],
           "number of groups" => [
-            "",
-            ""
+            "The doughnut shop baked #{@max} doughnuts today. If #{@min} doughnuts fit in a box, how many boxes can be filled?",
+            "If #{@min} crayons can fit in a box and there are #{@max} crayons on a table, how many boxes can be filled with these crayons?"
           ]
         },
 
