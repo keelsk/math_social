@@ -162,23 +162,23 @@ class ApplicationController < Sinatra::Base
             "Monica has #{@max} trophies. Helen has #{@min} less trophies than Monica. How many trophies does Helen have?"
           ],
           "referent more" => [
-            "",
-            "",
-            ""
+            "Jordan has #{@max} crayons. He has #{@min} more than Craig. How many crayons does Craig have?",
+            "Jason has #{@max} marbles. He has #{@min} more than Quinton. How many marbles does Quinton have?",
+            "Jori has written #{@max} stories. She has written #{@min} more stories than Kyle. How many stories has Kyle written?"
           ],
           "referent less" => [
-            "",
-            ""
+            "Kevin has read #{@min} chapters. He has read #{@max} less chapters than Doug. How many chapters has Doug read?",
+            "India has won #{@max} races. She has won #{@min} less races than Kia. How many races has Kia won?"
           ]
         },
 
         "equal groups" => {
           "product unknown" => [
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Joy bought #{@min} boxes of cookies with #{@max} cookies in each box. How manhy cookies did she buy?",
+            "Megan has #{@max} bookshelves with #{@min} books on each shelf. How many books does she have?",
+            "There are #{@min} gardens on Mary's estate. Each garden has #{@max} flowers. How many plants are on Mary's estate?",
+            "There are #{@max} chocolate factories in the United States. Each factory makes #{@min} pounds of chocolate each day. How much chocolate is made in one day in the United State?",
+            "Matthew and his friends picked #{@max} cartons of strawberries. There were #{@min} strawberries in each carton. How many strawberries did they pick?"
           ],
           "group size" => [
             "",
