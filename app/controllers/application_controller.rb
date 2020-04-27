@@ -129,11 +129,11 @@ class ApplicationController < Sinatra::Base
 
         "part part whole" => {
           "part unknown" => [
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Clariz has a treat bag. In her treat bag she has #{@min} starbursts and some skittles. If she has #{@max} pieces of candy in her treat bag, how many skittles does she have?",
+            "Jeremiah has a pencil pouch with #{@min} pens and some pencils inside. If he has #{@max} writing utensils in his pencil pouch, how many are pencils?",
+            "Sereniti has #{@min} comedies in her movie collection. If she has #{@max} movies in her move collection, how many movies are not comedies?",
+            "Kingston has #{@max} books. Some books are fiction and #{@min} books are non-fiction. How many fiction books does Kingston have?",
+            "Nicholas has #{@max} cards in his card collection. If he has #{@min} basketball cards and the rest are baseball cards, how many baseball cards does he have?"
           ],
           "whole unknown" => [
             "There are #{@max} marigolds and #{@min} daffodils in Maria's garden. How many flowers are in her garden?",
@@ -146,20 +146,20 @@ class ApplicationController < Sinatra::Base
 
         "compare" => {
           "difference unknown" => [
-            "",
-            "",
-            "",
-            "",
-            ""
+            "Jill has #{@min} stickers. Brad has #{@max} stickers. How many more sticers does Brad have than Jill?",
+            "Mark scored #{@max} points. Fred scored #{@min} points. How many more points did Mark score than Fred?",
+            "During the year, Trevin ran #{@min} miles and Elliott ran #{@max} miles. How many more miles did Elliott run than Trevin?",
+            "Over the summer, Jack earned #{@max} dollars cutting grass, and Jerry earned #{@min} dollars cutting grass. How many more dollars did Jack earn than Jerry?",
+            "In their first football seasons, Michael ran #{@min} yards and Todd ran #{@max} yards. How many more yards did Todd run than Michael?"
           ],
           "quantity more" => [
-            "",
-            "",
-            ""
+            "Jenna has #{@max} pieces of candy. Molly has #{@min} more pieces of candy than Jenna. How manh pieces of candy does Molly have? ",
+            "Kelley has #{@min} instagram followers. Vanessa has #{@max} more instagram followers than Kelley. How many instagram followers does Vanessa have?",
+            "Heather spent #{@max} dollars at the mall. Amber spent #{@min} more dollars than Heather. How much money did Amber spend at the mall?"
           ],
           "quantity less" => [
-            "",
-            ""
+            "Jennifer has #{@max} teddy bears. Nicole has #{@min} less teddy bears than Jennifer. How many Teddy bears does Nicole have?",
+            "Monica has #{@max} trophies. Helen has #{@min} less trophies than Monica. How many trophies does Helen have?"
           ],
           "referent more" => [
             "",
