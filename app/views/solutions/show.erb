@@ -1,6 +1,6 @@
 <!-- Display problem and solution -->
 <div class ="row features justify-content-center">
-  <div class="col-md-8">
+  <div class="col-sm-8">
     <div class="card border-primary">
       <h5 class="card-header bg-primary text-warning"><%=@problem.user.username.capitalize%>'s Problem</h5>
         <div class="card-body">
@@ -25,11 +25,11 @@
   </div>
 <br>
 <!-- comment box -->
-<div class="col-md-8">
+<div class="col-sm-8">
   <div class="card border-primary">
       <div class="card-body">
         <h5 class="card-title text-success">Write a Comment:</h5>
-        <form action ="/comments/<%=@solution.id%>" class ="form-group col-md-8" method ="post">
+        <form action ="/comments/<%=@solution.id%>" class ="form-group col-sm-8" method ="post">
          <textarea name ="content" class ="form-control" width ="100%" required></textarea><br>
           <button type="submit" class="btn btn-sm btn-primary pull-right">Post Comment</button>
         </form>
@@ -38,7 +38,7 @@
 
         <!-- Individual Comments -->
         <h5 class="card-title text-success">Comments:</h5>
-        <form>
+        <!-- <form> -->
           <div class="form-group row">
             <% @solution.comments.each do |comment|%>
             <label for="comment_<%=comment.id%>" class="text-right col-md-3 col-form-label"><%=comment.user.username.capitalize%>:</label>
@@ -47,15 +47,17 @@
               <!-- Edit and Delete Buttons for Comments -->
               <%if comment.user.id == current_user.id%>
               <form action= "/comments/<%=comment.id%>" method ="post">
+                <div class="form-group">
                   <input type = "hidden" id ="hidden" name ="_method" value = "delete">
-                  <input type="submit" class="btn btn-sm btn-primary" value ="Delete">
+                  <button type="submit" class="btn btn-sm btn-primary" value ="Delete">Delete</button>
                   <a href ="/comments/<%=comment.id%>/edit" class ="btn btn-sm btn-info">Edit</a>
+                </div>
               </form>
               <%end%>
             </div>
             <% end%>
           </div>
-        </form>
+        <!-- </form> -->
 
 
     </div>
