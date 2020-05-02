@@ -10,7 +10,6 @@ class ProblemsController < ApplicationController
   get "/problems/:username" do
     redirect "/login" if !logged_in?
     @user = User.find_by(username: params[:username])
-    @solution_count = 0 if !@user.problems
     @solution_count = @user.problems.count do |problem|
         !problem.solution.nil?
     end
